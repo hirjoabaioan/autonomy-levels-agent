@@ -82,6 +82,10 @@ export async function runCase(c: EvalCase, t: Target, meter: Meter, fixtures?: F
       for (let d = 0; d < (step.deliveries ?? 1); d++) if (!app.receive(msg)) duplicates++;
     }
     const run = await app.worker.runOnce();
+    if (process.env.EVAL_TRACE) {
+      const o = run.outcomes[0] as Outcome | undefined;
+      console.error(`[${c.id} #${i + 1}] > ${step.body}\n    < ${JSON.stringify(o)?.slice(0, 600)}`);
+    }
     failures.push(...scoreStep(step, { outcome: run.outcomes[0] as Outcome | undefined, app, phone, duplicates, reclaimed: run.reclaimed }, `step ${i + 1}`));
   }
   failures.push(...scoreFinal(c.final, app));
@@ -195,7 +199,8 @@ function arg(argv: string[], name: string): string | undefined {
 
 async function main(argv: string[]): Promise<number> {
   const replay = argv.includes('--replay');
-  const cases = loadCases();
+  const only = process.env.EVAL_CASES?.split(",");
+  const cases = loadCases().filter((c) => !only || only.includes(c.id));
   const fixtures = loadFixtures(join(HERE, 'fixtures'));
   let llm: Target[];
   if (replay) {

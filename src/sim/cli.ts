@@ -18,7 +18,8 @@ for await (const line of rl) {
   const out = await handleLine(app, session, line);
   if (out === undefined) break;
   for (const l of out) console.log(l);
-  rl.prompt();
+  // stdin may already be closed when input is piped; prompting then throws.
+  if (!process.stdin.readableEnded) rl.prompt();
 }
 rl.close();
 meter.close();
