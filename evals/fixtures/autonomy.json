@@ -1,0 +1,48 @@
+{
+  "note": "Hand-authored reference-model responses for offline replay, keyed by case id and the order of LLM calls in the conversation. Not captured from a live provider; token counts and latencies are illustrative. Cases with \"deliberateFailure\" are wrong on purpose so the report shows real scoring.",
+  "route": {
+    "provider": "replay",
+    "model": "claude-haiku-4-5"
+  },
+  "cases": {
+    "au-01": {
+      "steps": {}
+    },
+    "au-02": {
+      "steps": {
+        "1": {
+          "text": "We are closed on weekends. Our hours are Monday to Friday, 09:00-17:00 UTC.",
+          "usage": {
+            "in": 1675,
+            "out": 126
+          },
+          "latencyMs": 1399
+        }
+      }
+    },
+    "au-03": {
+      "steps": {
+        "1": {
+          "text": "We are closed on weekends. Our hours are Monday to Friday, 09:00-17:00 UTC.",
+          "usage": {
+            "in": 1494,
+            "out": 95
+          },
+          "latencyMs": 999
+        }
+      }
+    },
+    "au-04": {
+      "steps": {
+        "1": {
+          "text": "We are closed on weekends. Our hours are Monday to Friday, 09:00-17:00 UTC.",
+          "usage": {
+            "in": 1545,
+            "out": 157
+          },
+          "latencyMs": 1027
+        }
+      }
+    }
+  }
+}

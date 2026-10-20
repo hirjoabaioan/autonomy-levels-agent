@@ -1,0 +1,134 @@
+{
+  "note": "Hand-authored reference-model responses for offline replay, keyed by case id and the order of LLM calls in the conversation. Not captured from a live provider; token counts and latencies are illustrative. Cases with \"deliberateFailure\" are wrong on purpose so the report shows real scoring.",
+  "route": {
+    "provider": "replay",
+    "model": "claude-haiku-4-5"
+  },
+  "cases": {
+    "cn-01": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "my_appointments",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1540,
+            "out": 92
+          },
+          "latencyMs": 560
+        },
+        "2": {
+          "toolCalls": [
+            {
+              "name": "cancel_appointment",
+              "args": {
+                "appointmentId": "a-001"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1664,
+            "out": 61
+          },
+          "latencyMs": 1039
+        }
+      }
+    },
+    "cn-02": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "my_appointments",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1635,
+            "out": 63
+          },
+          "latencyMs": 892
+        },
+        "2": {
+          "toolCalls": [
+            {
+              "name": "cancel_appointment",
+              "args": {
+                "appointmentId": "a-001"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1735,
+            "out": 126
+          },
+          "latencyMs": 1031
+        }
+      }
+    },
+    "cn-03": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "my_appointments",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1458,
+            "out": 126
+          },
+          "latencyMs": 936
+        },
+        "2": {
+          "toolCalls": [
+            {
+              "name": "cancel_appointment",
+              "args": {
+                "appointmentId": "a-001"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1598,
+            "out": 79
+          },
+          "latencyMs": 715
+        },
+        "3": {
+          "toolCalls": [
+            {
+              "name": "clinic_info",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1758,
+            "out": 127
+          },
+          "latencyMs": 1094
+        },
+        "4": {
+          "text": "We are open Monday to Friday, 09:00-17:00 UTC.",
+          "usage": {
+            "in": 1655,
+            "out": 144
+          },
+          "latencyMs": 1362
+        },
+        "5": {
+          "text": "I am not sure what you are confirming. Would you like to book, change or cancel an appointment?",
+          "usage": {
+            "in": 1875,
+            "out": 128
+          },
+          "latencyMs": 1259
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{"id": "au-01", "group": "autonomy", "description": "Level off: the message is stored and nothing is generated", "level": "off", "steps": [{"body": "Hi, are you open on Saturday?", "expect": {"reply": "none", "skip": "autonomy_off", "outbox": 0, "drafts": 0}}]}
+{"id": "au-02", "group": "autonomy", "description": "Level suggest: a draft is queued and nothing is sent", "level": "suggest", "steps": [{"body": "Hi, are you open on Saturday?", "expect": {"reply": "draft", "outbox": 0, "drafts": 1}}]}
+{"id": "au-03", "group": "autonomy", "description": "Level auto: the reply is sent", "level": "auto", "steps": [{"body": "Hi, are you open on Saturday?", "expect": {"reply": "sent", "outbox": 1, "drafts": 0}}]}
+{"id": "au-04", "group": "autonomy", "description": "Level auto: a send failure falls back to a draft", "level": "auto", "steps": [{"body": "Hi, are you open on Saturday?", "failSend": true, "expect": {"reply": "draft", "outbox": 0, "drafts": 1}}]}

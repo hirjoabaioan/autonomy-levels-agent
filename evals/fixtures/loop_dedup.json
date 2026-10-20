@@ -1,0 +1,110 @@
+{
+  "note": "Hand-authored reference-model responses for offline replay, keyed by case id and the order of LLM calls in the conversation. Not captured from a live provider; token counts and latencies are illustrative. Cases with \"deliberateFailure\" are wrong on purpose so the report shows real scoring.",
+  "route": {
+    "provider": "replay",
+    "model": "claude-haiku-4-5"
+  },
+  "cases": {
+    "ld-01": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "clinic_info",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1664,
+            "out": 70
+          },
+          "latencyMs": 615
+        },
+        "2": {
+          "text": "We are open Monday to Friday, 09:00-17:00 UTC.",
+          "usage": {
+            "in": 1604,
+            "out": 101
+          },
+          "latencyMs": 1090
+        }
+      }
+    },
+    "ld-02": {
+      "steps": {}
+    },
+    "ld-03": {
+      "steps": {
+        "1": {
+          "text": "Hi! How can I help you today?",
+          "usage": {
+            "in": 1510,
+            "out": 162
+          },
+          "latencyMs": 949
+        },
+        "2": {
+          "text": "Hi! How can I help you today?",
+          "usage": {
+            "in": 1662,
+            "out": 163
+          },
+          "latencyMs": 1310
+        }
+      }
+    },
+    "ld-04": {
+      "steps": {
+        "1": {
+          "text": "We are open Monday to Friday, 09:00-17:00 UTC.",
+          "usage": {
+            "in": 1665,
+            "out": 168
+          },
+          "latencyMs": 1329
+        },
+        "2": {
+          "text": "We offer cleanings, check-ups, fillings and whitening.",
+          "usage": {
+            "in": 1517,
+            "out": 121
+          },
+          "latencyMs": 1006
+        },
+        "3": {
+          "text": "We are at 12 Quay Street, Harborview.",
+          "usage": {
+            "in": 1629,
+            "out": 137
+          },
+          "latencyMs": 771
+        }
+      }
+    },
+    "ld-05": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "list_services",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1452,
+            "out": 107
+          },
+          "latencyMs": 707
+        },
+        "2": {
+          "text": "We offer cleaning, check-up, filling and whitening.",
+          "usage": {
+            "in": 1656,
+            "out": 152
+          },
+          "latencyMs": 1466
+        }
+      }
+    }
+  }
+}

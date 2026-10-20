@@ -1,0 +1,126 @@
+{
+  "note": "Hand-authored reference-model responses for offline replay, keyed by case id and the order of LLM calls in the conversation. Not captured from a live provider; token counts and latencies are illustrative. Cases with \"deliberateFailure\" are wrong on purpose so the report shows real scoring.",
+  "route": {
+    "provider": "replay",
+    "model": "claude-haiku-4-5"
+  },
+  "cases": {
+    "bk-01": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "book_appointment",
+              "args": {
+                "dentistId": "d-1",
+                "serviceId": "s-cleaning",
+                "start": "2026-10-23T10:00:00Z"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1613,
+            "out": 88
+          },
+          "latencyMs": 1133
+        }
+      }
+    },
+    "bk-02": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "book_appointment",
+              "args": {
+                "dentistId": "d-1",
+                "serviceId": "s-cleaning",
+                "start": "2026-10-23T10:00:00Z"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1450,
+            "out": 75
+          },
+          "latencyMs": 1209
+        }
+      }
+    },
+    "bk-03": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "book_appointment",
+              "args": {
+                "dentistId": "d-2",
+                "serviceId": "s-filling",
+                "start": "2026-10-23T10:30:00Z"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1655,
+            "out": 90
+          },
+          "latencyMs": 933
+        }
+      }
+    },
+    "bk-04": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "book_appointment",
+              "args": {
+                "dentistId": "d-1",
+                "serviceId": "s-cleaning",
+                "start": "2026-10-18T10:00:00Z"
+              }
+            }
+          ],
+          "usage": {
+            "in": 1664,
+            "out": 68
+          },
+          "latencyMs": 1069
+        },
+        "2": {
+          "text": "That time has already passed. Could you pick a day from tomorrow onwards?",
+          "usage": {
+            "in": 1512,
+            "out": 147
+          },
+          "latencyMs": 1132
+        }
+      }
+    },
+    "bk-05": {
+      "steps": {
+        "1": {
+          "toolCalls": [
+            {
+              "name": "list_services",
+              "args": {}
+            }
+          ],
+          "usage": {
+            "in": 1577,
+            "out": 101
+          },
+          "latencyMs": 941
+        },
+        "2": {
+          "text": "Happy to help! Which service do you need (cleaning, check-up, filling or whitening), and which day suits you best?",
+          "usage": {
+            "in": 1669,
+            "out": 114
+          },
+          "latencyMs": 1188
+        }
+      }
+    }
+  }
+}
